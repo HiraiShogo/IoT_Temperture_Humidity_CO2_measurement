@@ -8,9 +8,9 @@ DHT dht(DHTPIN, DHTTYPE);
 unsigned long interval = 50; // unit:sec
 const int rx_pin = 4;
 const int tx_pin = 5;
-const char* ssid = "aterm-c7ef58-g";
-const char* password = "0b9ef8aa1029d";
-String server = "http://192.168.10.103:8000/";
+const char* ssid = "SGP200W-10A8-bg";
+const char* password = "W33JEsrN";
+String server = "http://192.168.1.254:8000/";
 struct tm timeInfo;
 
 

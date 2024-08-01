@@ -7,7 +7,7 @@ import numpy as np
 import math
 from matplotlib import pyplot as plt
 import os
-import requests
+
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def task():
@@ -32,8 +32,37 @@ def pic_create():
     humidity60 = [x for x in humidity60 if math.isnan(x) == False]
     co60 = [x for x in co60 if math.isnan(x) == False]
 
+
+    # 室温グラフ生成
     plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
-    # プロット
+    plt.plot(temperature60, label="室温")
+    plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01, top=0.995)
+
+    # 凡例の表示
+    plt.grid()
+    plt.tick_params(labelbottom=False)
+    plt.tick_params(direction='in')
+
+    # プロット表示(設定の反映)
+    plt.savefig('./static/images/temperture60.png')
+
+
+    # 湿度グラフ生成
+    plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
+    plt.plot(humidity60, label="湿度")
+    plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01, top=0.995)
+
+    # 凡例の表示
+    plt.grid()
+    plt.tick_params(labelbottom=False)
+    plt.tick_params(direction='in')
+
+    # プロット表示(設定の反映)
+    plt.savefig('./static/images/humidity60.png')
+
+
+    # CO2グラフ生成
+    plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
     plt.plot(co60, label="CO2")
     plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01, top=0.995)
 
@@ -126,18 +155,18 @@ def create():
     humidity21=humidity22=humidity23=humidity24="-"
     co2=co3=co4=co5=co6=co7=co8=co9=co10=co11=co12=co13=co14=co15=co16=co17=co18=co19=co20=co21=co22=co23=co24="-"
 
-    post = Post(date=date_today, datetime=datetime_today, temperature1=temperature1,temperature2=temperature2,temperature3=temperature3,temperature4=temperature4,temperature5=temperature5,
-                temperature6=temperature6,temperature7=temperature7,temperature8=temperature8,temperature9=temperature9,temperature10=temperature10,
-                temperature11=temperature11,temperature12=temperature12,temperature13=temperature13,temperature14=temperature14,temperature15=temperature15,
-                temperature16=temperature16,temperature17=temperature17,temperature18=temperature18,temperature19=temperature19,temperature20=temperature20,
-                temperature21=temperature21,temperature22=temperature22,temperature23=temperature23,temperature24=temperature24,
-                humidity1=humidity1, humidity2=humidity2, humidity3=humidity3, humidity4=humidity4, humidity5=humidity5,
-                humidity6=humidity6, humidity7=humidity7, humidity8=humidity8, humidity9=humidity9, humidity10=humidity10,
-                humidity11=humidity11,humidity12=humidity12,humidity13=humidity13,humidity14=humidity14,humidity15=humidity15,
-                humidity16=humidity16,humidity17=humidity17,humidity18=humidity18,humidity19=humidity19,humidity20=humidity20,
-                humidity21=humidity21,humidity22=humidity22,humidity23=humidity23,humidity24=humidity24,
-                co1=co1,co2=co2,co3=co3,co4=co4,co5=co5,co6=co6,co7=co7,co8=co8,co9=co9,co10=co10,
-                co11=co11,co12=co12,co13=co13,co14=co14,co15=co15,co16=co16,co17=co17,co18=co18,co19=co19,co20=co20,
+    post = Post(date=date_today, datetime=datetime_today, temperature1=temperature1,temperature2=temperature2,temperature3=temperature3,temperature4=temperature4,temperature5=temperature5,\
+                temperature6=temperature6,temperature7=temperature7,temperature8=temperature8,temperature9=temperature9,temperature10=temperature10,\
+                temperature11=temperature11,temperature12=temperature12,temperature13=temperature13,temperature14=temperature14,temperature15=temperature15,\
+                temperature16=temperature16,temperature17=temperature17,temperature18=temperature18,temperature19=temperature19,temperature20=temperature20,\
+                temperature21=temperature21,temperature22=temperature22,temperature23=temperature23,temperature24=temperature24,\
+                humidity1=humidity1, humidity2=humidity2, humidity3=humidity3, humidity4=humidity4, humidity5=humidity5,\
+                humidity6=humidity6, humidity7=humidity7, humidity8=humidity8, humidity9=humidity9, humidity10=humidity10,\
+                humidity11=humidity11,humidity12=humidity12,humidity13=humidity13,humidity14=humidity14,humidity15=humidity15,\
+                humidity16=humidity16,humidity17=humidity17,humidity18=humidity18,humidity19=humidity19,humidity20=humidity20,\
+                humidity21=humidity21,humidity22=humidity22,humidity23=humidity23,humidity24=humidity24,\
+                co1=co1,co2=co2,co3=co3,co4=co4,co5=co5,co6=co6,co7=co7,co8=co8,co9=co9,co10=co10,\
+                co11=co11,co12=co12,co13=co13,co14=co14,co15=co15,co16=co16,co17=co17,co18=co18,co19=co19,co20=co20,\
                 co21=co21,co22=co22,co23=co23,co24=co24)
     # DBに値を送り保存する
     db.session.add(post)
