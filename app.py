@@ -10,6 +10,7 @@ import os
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
+
 def task():
     """ 実行したいことを記載 """
     with app.app_context():
