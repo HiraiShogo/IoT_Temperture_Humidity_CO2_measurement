@@ -38,7 +38,7 @@ def pic_create():
     plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
     plt.plot(temperature60, label="室温")
     plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01)
-    plt.title('温度', fontname="MS Gothic")
+    plt.title('Temperature')
 
     # 凡例の表示
     plt.grid()
@@ -53,7 +53,7 @@ def pic_create():
     plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
     plt.plot(humidity60, label="湿度")
     plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01)
-    plt.title('湿度', fontname="MS Gothic")
+    plt.title('humidity')
 
     # 凡例の表示
     plt.grid()
@@ -68,7 +68,7 @@ def pic_create():
     plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
     plt.plot(co60, label="CO2")
     plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01)
-    plt.title('CO2', fontname="MS Gothic")
+    plt.title('CO2')
 
     # 凡例の表示
     plt.grid()
