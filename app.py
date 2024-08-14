@@ -12,7 +12,6 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
 def task():
-    """ 実行したいことを記載 """
     with app.app_context():
         now_time = datetime.now()
         print("task実行", now_time)
@@ -38,7 +37,8 @@ def pic_create():
     # 1. 室温グラフ生成
     plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
     plt.plot(temperature60, label="室温")
-    plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01, top=0.995)
+    plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01)
+    plt.title('温度', fontname="MS Gothic")
 
     # 凡例の表示
     plt.grid()
@@ -52,7 +52,8 @@ def pic_create():
     # 2. 湿度グラフ生成
     plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
     plt.plot(humidity60, label="湿度")
-    plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01, top=0.995)
+    plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01)
+    plt.title('湿度', fontname="MS Gothic")
 
     # 凡例の表示
     plt.grid()
@@ -66,7 +67,8 @@ def pic_create():
     # 3. CO2グラフ生成
     plt.figure(dpi=100, figsize=(13, 2), facecolor='#F0F0F0')
     plt.plot(co60, label="CO2")
-    plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01, top=0.995)
+    plt.subplots_adjust(left=0.03, right=0.998, bottom=0.01)
+    plt.title('CO2', fontname="MS Gothic")
 
     # 凡例の表示
     plt.grid()
@@ -115,17 +117,26 @@ class Post(db.Model):
 
 @app.route("/")
 def index():
+    # 変数定義
+    target_date = date.today() - timedelta(days=3)
     temperature60 = []
     humidity60 = []
     co60 = []
+
+    # 過去60分のデータ読み込み
     with open('data60.pickle', 'rb') as f:
         data60 = pickle.load(f)
+    # データ並び替え
     for i in range(len(data60)):
         temperature60.append(data60[i][0])
         humidity60.append(data60[i][1])
         co60.append(data60[i][2])
+    # データを視覚化
     pic_create()
-    posts = Post.query.all()
+
+    # SQL操作―３日前からの1時間データを取得
+    posts = Post.query.filter(Post.date >= target_date)
+
     return render_template('index.html',posts = posts, temperature60=temperature60, humidity60=humidity60, co60=co60)
 
 

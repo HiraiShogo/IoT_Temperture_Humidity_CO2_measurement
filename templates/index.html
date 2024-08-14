@@ -4,22 +4,22 @@
 
 {% block content %}
     <article class="main_article">
-        <div class="article_div1">
-            <h2>1分毎 1時間分</h2>
-            <p>{% for temperature in temperature60 %}
-                {{ temperature }}
-            {% endfor %}</p>
+        <div class="article_div0">
+            <h2>現在データ</h2>
+            <div class="article-div0-div">
+                <span class="article_div0_span">{{ temperature60[-1] }} [℃]</span>
+                <span class="article_div0_span">{{ humidity60[-1] }} [%]</span>
+                <span class="article_div0_span">{{ co60[-1] }} [ppm]</span>
+            </div>
 
-            <p>{% for humidity in humidity60 %}
-                {{ humidity }}
-            {% endfor %}</p>
-            
-            <p>{% for co in co60 %}
-                {{ co }}
-            {% endfor %}</p>
-            <img src="static/images/co60.png" alt="CO2濃度pic" width="1298px">
         </div>
-        <h2>日毎</h2>
+        <div class="article_div1">
+            <h2>1分データ(60分)</h2>
+            <img src="static/images/temperture60.png" alt="温度pic" width="1298px"><br>
+            <img src="static/images/humidity60.png" alt="湿度pic" width="1298px"><br>
+            <img src="static/images/co60.png" alt="CO2濃度pic" width="1298px"><br>
+        </div>
+        <h2>日データ</h2>
         {% for post in posts %}
             <div class="article_div2">
                 <table>
