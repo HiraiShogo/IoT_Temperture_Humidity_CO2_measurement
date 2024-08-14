@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block title %}ホーム{% endblock %}
+
+{% block content %}
+    <article class="main_article">
+        <div class="article_div1">
+            <h2>1分毎 1時間分</h2>
+            <p>{% for temperature in temperature60 %}
+                {{ temperature }}
+            {% endfor %}</p>
+
+            <p>{% for humidity in humidity60 %}
+                {{ humidity }}
+            {% endfor %}</p>
+            
+            <p>{% for co in co60 %}
+                {{ co }}
+            {% endfor %}</p>
+            <img src="static/images/co60.png" alt="CO2濃度pic" width="1298px">
+        </div>
+        <h2>日毎</h2>
+        {% for post in posts %}
+            <div class="article_div2">
+                <table>
+                    <!-- rowspan="2" -->
+                    <tr align="center" class="article_div_tr1">
+                        <td class="article_div_td"></td>
+                        <td colspan="24" class="article_div_td">{{ post.date }}</td>
+                    </tr>
+                    <tr align="center" class="article_div_tr2">
+                        <td class="article_div_td">時間</td>
+                        <td class="article_div_td">01</td>
+                        <td class="article_div_td">02</td>
+                        <td class="article_div_td">03</td>
+                        <td class="article_div_td">04</td>
+                        <td class="article_div_td">05</td>
+                        <td class="article_div_td">06</td>
+                        <td class="article_div_td">07</td>
+                        <td class="article_div_td">08</td>
+                        <td class="article_div_td">09</td>
+                        <td class="article_div_td">10</td>
+                        <td class="article_div_td">11</td>
+                        <td class="article_div_td">12</td>
+                        <td class="article_div_td">13</td>
+                        <td class="article_div_td">14</td>
+                        <td class="article_div_td">15</td>
+                        <td class="article_div_td">16</td>
+                        <td class="article_div_td">17</td>
+                        <td class="article_div_td">18</td>
+                        <td class="article_div_td">19</td>
+                        <td class="article_div_td">20</td>
+                        <td class="article_div_td">21</td>
+                        <td class="article_div_td">22</td>
+                        <td class="article_div_td">23</td>
+                        <td class="article_div_td">24</td>
+                    </tr>
+                    <tr align="center" class="article_div_tr3">
+                        <td class="article_div_td">室温[℃]</td>
+                        <td class="article_div_td">{{ post.temperature1 }}</td>
+                        <td class="article_div_td">{{ post.temperature2 }}</td>
+                        <td class="article_div_td">{{ post.temperature3 }}</td>
+                        <td class="article_div_td">{{ post.temperature4 }}</td>
+                        <td class="article_div_td">{{ post.temperature5 }}</td>
+                        <td class="article_div_td">{{ post.temperature6 }}</td>
+                        <td class="article_div_td">{{ post.temperature7 }}</td>
+                        <td class="article_div_td">{{ post.temperature8 }}</td>
+                        <td class="article_div_td">{{ post.temperature9 }}</td>
+                        <td class="article_div_td">{{ post.temperature10 }}</td>
+                        <td class="article_div_td">{{ post.temperature11 }}</td>
+                        <td class="article_div_td">{{ post.temperature12 }}</td>
+                        <td class="article_div_td">{{ post.temperature13 }}</td>
+                        <td class="article_div_td">{{ post.temperature14 }}</td>
+                        <td class="article_div_td">{{ post.temperature15 }}</td>
+                        <td class="article_div_td">{{ post.temperature16 }}</td>
+                        <td class="article_div_td">{{ post.temperature17 }}</td>
+                        <td class="article_div_td">{{ post.temperature18 }}</td>
+                        <td class="article_div_td">{{ post.temperature19 }}</td>
+                        <td class="article_div_td">{{ post.temperature20 }}</td>
+                        <td class="article_div_td">{{ post.temperature21 }}</td>
+                        <td class="article_div_td">{{ post.temperature22 }}</td>
+                        <td class="article_div_td">{{ post.temperature23 }}</td>
+                        <td class="article_div_td">{{ post.temperature24 }}</td>
+                    </tr>
+                    <tr align="center" class="article_div_tr4">
+                        <td class="article_div_td">湿度[%]</td>
+                        <td class="article_div_td">{{ post.humidity1 }}</td>
+                        <td class="article_div_td">{{ post.humidity2 }}</td>
+                        <td class="article_div_td">{{ post.humidity3 }}</td>
+                        <td class="article_div_td">{{ post.humidity4 }}</td>
+                        <td class="article_div_td">{{ post.humidity5 }}</td>
+                        <td class="article_div_td">{{ post.humidity6 }}</td>
+                        <td class="article_div_td">{{ post.humidity7 }}</td>
+                        <td class="article_div_td">{{ post.humidity8 }}</td>
+                        <td class="article_div_td">{{ post.humidity9 }}</td>
+                        <td class="article_div_td">{{ post.humidity10 }}</td>
+                        <td class="article_div_td">{{ post.humidity11 }}</td>
+                        <td class="article_div_td">{{ post.humidity12 }}</td>
+                        <td class="article_div_td">{{ post.humidity13 }}</td>
+                        <td class="article_div_td">{{ post.humidity14 }}</td>
+                        <td class="article_div_td">{{ post.humidity15 }}</td>
+                        <td class="article_div_td">{{ post.humidity16 }}</td>
+                        <td class="article_div_td">{{ post.humidity17 }}</td>
+                        <td class="article_div_td">{{ post.humidity18 }}</td>
+                        <td class="article_div_td">{{ post.humidity19 }}</td>
+                        <td class="article_div_td">{{ post.humidity20 }}</td>
+                        <td class="article_div_td">{{ post.humidity21 }}</td>
+                        <td class="article_div_td">{{ post.humidity22 }}</td>
+                        <td class="article_div_td">{{ post.humidity23 }}</td>
+                        <td class="article_div_td">{{ post.humidity24 }}</td>
+                    </tr>
+                    <tr align="center" class="article_div_tr5">
+                        <td class="article_div_td">CO2濃度[ppm]</td>
+                        <td class="article_div_td">{{ post.co1 }}</td>
+                        <td class="article_div_td">{{ post.co2 }}</td>
+                        <td class="article_div_td">{{ post.co3 }}</td>
+                        <td class="article_div_td">{{ post.co4 }}</td>
+                        <td class="article_div_td">{{ post.co5 }}</td>
+                        <td class="article_div_td">{{ post.co6 }}</td>
+                        <td class="article_div_td">{{ post.co7 }}</td>
+                        <td class="article_div_td">{{ post.co8 }}</td>
+                        <td class="article_div_td">{{ post.co9 }}</td>
+                        <td class="article_div_td">{{ post.co10 }}</td>
+                        <td class="article_div_td">{{ post.co11 }}</td>
+                        <td class="article_div_td">{{ post.co12 }}</td>
+                        <td class="article_div_td">{{ post.co13 }}</td>
+                        <td class="article_div_td">{{ post.co14 }}</td>
+                        <td class="article_div_td">{{ post.co15 }}</td>
+                        <td class="article_div_td">{{ post.co16 }}</td>
+                        <td class="article_div_td">{{ post.co17 }}</td>
+                        <td class="article_div_td">{{ post.co18 }}</td>
+                        <td class="article_div_td">{{ post.co19 }}</td>
+                        <td class="article_div_td">{{ post.co20 }}</td>
+                        <td class="article_div_td">{{ post.co21 }}</td>
+                        <td class="article_div_td">{{ post.co22 }}</td>
+                        <td class="article_div_td">{{ post.co23 }}</td>
+                        <td class="article_div_td">{{ post.co24 }}</td>
+                    </tr>
+                </table>
+            </div>
+        {% endfor %}
+    </article>
+
+
+
+{% endblock content %}
