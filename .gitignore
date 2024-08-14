@@ -1,3 +1,5 @@
 /temperature_humidity_co2
+__pycache__
+.idea
 instance
 data60.pickle
